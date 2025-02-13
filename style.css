@@ -17,20 +17,25 @@ body {
     pointer-events: none;
 }
 
-/* Centered Container */
+/* Container adjustments */
 .container {
-    text-align: center;
+    text-align: center; /* Centers text inside */
     padding: 20px;
     border-radius: 20px;
+
+    /* Background and frosted effect */
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(12px);
     border: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    
-    width: 50vw;
-    max-width: 500px;
-    min-width: 320px;
-    height: auto;
+
+    /* Animation & transitions */
+    animation: borderAnimation 3s linear infinite;
+    transition: backdrop-filter 0.5s ease-in-out, filter 0.5s ease-in-out;
+
+    /* Default square size (desktop) */
+    width: 500px;
+    height: 500px;
 
     /* Flexbox for centering content */
     display: flex;
@@ -45,27 +50,64 @@ body {
     transform: translate(-50%, -50%);
 }
 
+/* Mobile-friendly adjustments */
+@media screen and (max-width: 600px) {  
+    .container {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+
+/* Border animation */
+@keyframes borderAnimation {
+    0% { border-image: linear-gradient(90deg, #ff1493, #ff0000) 1; }
+    25% { border-image: linear-gradient(180deg, #ff0000, #ff69b4) 1; }
+    50% { border-image: linear-gradient(270deg, #ff69b4, #ff4500) 1; }
+    75% { border-image: linear-gradient(360deg, #ff4500, #ff1493) 1; }
+    100% { border-image: linear-gradient(90deg, #ff1493, #ff0000) 1; }
+}
+
 /* Title animation */
 h1 {
-    font-size: 2em;
+    font-size: 2.2em; /* Adjusted for better fit on small screens */
+    font-family: 'Arial', sans-serif;
     color: #ff1493;
     text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 30px #ff1493;
     animation: glow 1.5s infinite alternate;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-/* Button container (Row Layout) */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 30px #ff1493;
+    }
+    to {
+        text-shadow: 0 0 15px #ff69b4, 0 0 25px #ff1493, 0 0 35px #ff69b4;
+    }
+}
+
+/* Image styling */
+#leaf {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 120px; /* Smaller for mobile */
+    height: auto;
+    border: 3px solid #ff1493;
+    border-radius: 10px;
+}
+
+/* Button container */
 .button-container {
-    display: flex; /* Makes buttons align in a row */
+    display: flex; /* Makes the buttons align in a row */
     justify-content: center; /* Centers them horizontally */
-    align-items: center;
     gap: 15px; /* Adds spacing between buttons */
     margin-top: 20px;
 }
 
 /* Buttons */
 button {
-    font-size: 1.7em;
+    font-size: 1.7em; /* Bigger buttons */
     padding: 12px 25px;
     border: none;
     border-radius: 15px;
@@ -81,64 +123,80 @@ button:hover {
     background-color: #ff69b4;
 }
 
-/* Monika Sprites */
+/* Monika sprites */
 .sprite {
     display: none;
+}
+
+
+/* Initially blurred container */
+.container {
+    filter: blur(10px); /* Adds blur effect */
+    transition: filter 0.5s ease-in-out;
+}
+
+/* When the "Show Content" button is clicked */
+.container.unblurred {
+    filter: none; /* Removes blur effect */
+}
+
+/* Show Content Button */
+#showcontent {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 35px;
+    font-size: 22px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    z-index: 1000; /* Ensure it's above the blur */
 }
 
-/* Slide-in Monika */
-.slidefromright .sprite {
-    width: 250px;
-    height: auto;
-    right: -80px;
-    z-index: 1;
+/* Hide button after clicking */
+.hidden {
+    display: none;
 }
-
-/* Pointing Monika */
-.pointatyes .sprite {
-    width: 200px;
-    z-index: 2;
-}
-
-/* Jumpscare Monika */
-.jumpscare .sprite {
-    width: 300px;
-    z-index: 3;
-}
-
-/* Responsive UI for Android */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {  
     .container {
-        width: 90vw;
-        padding: 5vw;
+        width: 90%; /* Use percentage for better responsiveness */
+        max-width: 320px; /* Smaller container for mobile */
+        height: auto; /* Allow height to adjust dynamically */
+        padding: 15px;
     }
 
     h1 {
-        font-size: 5vw;
+        font-size: 1.8em; /* Slightly smaller title for mobile */
     }
 
+    /* Adjust button size and keep them in a row */
     .button-container {
-        flex-direction: row; /* Buttons stay in a row */
-        gap: 10px;
+        flex-direction: row; /* Ensure buttons stay in a row */
+        flex-wrap: wrap; /* Prevent overflow */
+        gap: 10px; /* Adjust spacing for smaller screens */
     }
 
     button {
-        width: auto;
-        font-size: 1.4em;
+        font-size: 1.4em; /* Reduce button size */
         padding: 10px 20px;
     }
 
+    /* Resize sprites for mobile */
+    .sprite {
+        max-width: 180px; /* Reduce sprite size */
+        height: auto;
+    }
+
     .slidefromright .sprite {
-        width: 180px;
-        right: -50px;
+        width: 160px;
+        right: -40px;
     }
 
     .pointatyes .sprite {
-        width: 160px;
-    }
+        width: 140
 
-    .jumpscare .sprite {
-        width: 250px;
-    }
-}
