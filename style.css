@@ -1,5 +1,5 @@
 body {
-    background-color: #ffe6f2; /* Soft pink romantic background */
+    background-color: #ffe6f2;
     font-family: "Arial", sans-serif;
     text-align: center;
     margin: 0;
@@ -30,16 +30,16 @@ body {
     transition: backdrop-filter 0.5s ease-in-out, filter 0.5s ease-in-out;
     
     filter: blur(10px);
-    width: 70%;
-    max-width: 750px; /* Increased width */
-    background: rgba(255, 255, 255, 0.2); /* Transparent white */
+    width: 80%; /* Increased width for mobile */
+    max-width: 750px;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
-    backdrop-filter: blur(12px); /* Enhanced frosted glass effect */
+    backdrop-filter: blur(12px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     border: 2px solid rgba(255, 255, 255, 0.3);
     margin: auto;
     position: relative;
-    top: 60px;
+    top: 50px;
 }
 
 /* Border animation */
@@ -53,12 +53,12 @@ body {
 
 /* Title animation */
 h1 {
-    font-size: 3em; /* Bigger text */
+    font-size: 2.2em; /* Adjusted for better fit on small screens */
     font-family: 'Arial', sans-serif;
     color: #ff1493;
     text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 30px #ff1493;
     animation: glow 1.5s infinite alternate;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 @keyframes glow {
@@ -74,7 +74,7 @@ h1 {
 #leaf {
     display: block;
     margin: 0 auto 15px auto;
-    width: 150px; /* Resized */
+    width: 120px; /* Smaller for mobile */
     height: auto;
     border: 3px solid #ff1493;
     border-radius: 10px;
@@ -83,15 +83,16 @@ h1 {
 /* Button container */
 .button-container {
     display: flex;
-    justify-content: center;
-    gap: 15px; /* More spacing */
-    margin-top: 20px;
+    flex-direction: column; /* Stack buttons on smaller screens */
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
 }
 
 /* Buttons */
 button {
-    font-size: 1.7em; /* Bigger buttons */
-    padding: 12px 25px;
+    font-size: 1.5em;
+    padding: 12px 20px;
     border: none;
     border-radius: 15px;
     background-color: #ff1493;
@@ -99,16 +100,13 @@ button {
     cursor: pointer;
     transition: 0.3s;
     font-weight: bold;
+    width: 90%; /* Make buttons full width for mobile */
+    max-width: 250px;
 }
 
 /* Button hover effect */
 button:hover {
     background-color: #ff69b4;
-}
-
-/* Monika sprites */
-.sprite {
-    display: none;
 }
 
 /* Show Content Button */
@@ -117,22 +115,22 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px 35px;
-    font-size: 22px;
+    padding: 15px 25px;
+    font-size: 18px;
     background-color: #ff69b4;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s ease, transform 0.2s ease;
-    z-index: 1000; /* Ensure it's above other elements */
+    z-index: 1000;
 }
 
 /* Hover & Click Effects */
 #showcontent:hover {
     background-color: hotpink;
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 #showcontent:active {
@@ -149,4 +147,67 @@ button:hover {
 .unblurred {
     backdrop-filter: none;
     filter: none;
+}
+
+/* 📱 Mobile & Small Tablets */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        top: 30px; /* Reduce space */
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em; /* Smaller title */
+    }
+
+    #leaf {
+        width: 100px; /* Make image smaller */
+    }
+
+    .button-container {
+        flex-direction: column; /* Stack buttons */
+        gap: 10px;
+    }
+
+    button {
+        font-size: 1.3em;
+        padding: 10px 18px;
+        width: 80%; /* Make buttons full width */
+    }
+
+    #showcontent {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+}
+
+/* 📱 Extra Small Phones (iPhone SE, Galaxy Mini) */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        top: 20px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #leaf {
+        width: 90px;
+    }
+
+    button {
+        font-size: 1.2em;
+        padding: 10px 15px;
+        width: 100%;
+    }
+
+    #showcontent {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
 }
