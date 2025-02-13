@@ -222,6 +222,35 @@ button:hover {
         font-size: 1.2em;
         padding: 8px 16px;
         width: 85%;
+/* Jumpscare Monika - Fullscreen */
+.jumpscare {
+    display: none; /* Hidden by default */
+    position: fixed; /* Covers the whole screen */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full screen width */
+    height: 100vh; /* Full screen height */
+    z-index: 9999; /* On top of everything */
+}
+
+.jumpscare img {
+    width: 100%; /* Fit width */
+    height: 100%; /* Fit height */
+    object-fit: cover; /* Prevent distortion */
+}
+
+/* Animation for Monika jumpscare */
+@keyframes jumpscareAnimation {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* When activated */
+.jumpscare.active {
+    display: block;
+    animation: jumpscareAnimation 0.2s ease-in;
+}
+
     }
 }
 
