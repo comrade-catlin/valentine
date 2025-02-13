@@ -72,8 +72,6 @@ function slideInMonika() {
 function expandButton() {
     monika1.style.display = 'true'; // Hide slide-in Monika
     yesButton.style.transform = 'scale(2)'; // Instantly double the button size
-    container.style.width = 'auto';
-    container.style.height = 'auto';
     container.style.padding = '20px';
     hasExpanded = true;
 }
@@ -83,11 +81,10 @@ function triggerJumpscare() {
     monikaJumpscare.style.display = 'block';
     monikaJumpscare.style.position = 'fixed';
     monikaJumpscare.style.left = '50%';
-    monikaJumpscare.style.top = '55%';
-    monikaJumpscare.style.bottom = '30%';
+    monikaJumpscare.style.top = '50%';
     monikaJumpscare.style.transform = 'translate(-50%, -50%)';
-    monikaJumpscare.style.width = '700px';
-    monikaJumpscare.style.height = '700px';
+    monikaJumpscare.style.width = 'auto';
+    monikaJumpscare.style.height = 'auto';
     
     setTimeout(() => {
         monikaJumpscare.style.display = 'none';
@@ -112,8 +109,8 @@ function showPointingMonika() {
     monikaPointing.style.left = (yesButtonRect.right - 70) + 'px';
     monikaPointing.style.top = (yesButtonRect.bottom - 170) + 'px';
 
-    monikaPointing.style.width = '400px'; // Adjust size here
-    monikaPointing.style.height = '400px'; // Adjust size here
+    monikaPointing.style.width = 'auto'; // Adjust size here
+    monikaPointing.style.height = 'auto'; // Adjust size here
 }
 
 // Event listener for "No" button
