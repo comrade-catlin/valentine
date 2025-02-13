@@ -69,28 +69,53 @@ h1 {
 #gushing-letter::-webkit-scrollbar {
     display: none; /* Chrome, Safari */
 }
-
-/* Button styling */
+/* Keep the existing styles unchanged */
+/* Ensure the button is centered in the middle of the card */
 button#showLetter {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 12px 24px;
+    font-size: 18px;
     background: rgba(255, 255, 255, 0.2);
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     backdrop-filter: blur(5px);
     transition: all 0.3s ease;
-    color: rgb(255, 151, 151);
-    z-index: 1000; /* Ensure it's above other elements */
+    color: rgb(0, 0, 0);
+    z-index: 1000;
+    position: absolute; 
+    top: 50%;  /* Centers vertically */
+    left: 50%; /* Centers horizontally */
+    transform: translate(-50%, -50%); /* Perfect centering */
 }
-
 
 #showLetter:hover {
     background-color: #ff1e4d;
 }
 
-.hide {
-    display: none; /* Hide button after click */
+/* Responsive UI for Android */
+@media screen and (max-width: 768px) {
+    .card {
+        width: 85%; /* Adjust width for mobile */
+        max-width: 400px;
+        padding: 15px;
+        position: relative;
+    }
+
+    button#showLetter {
+        font-size: 16px;
+        padding: 10px 20px;
+        top: 50%; /* Still centered */
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #gushing-letter {
+        font-size: 16px;
+        max-height: 300px;
+        margin-top: 60px; /* Creates space below button */
+    }
 }
