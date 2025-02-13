@@ -109,6 +109,11 @@ button:hover {
     background-color: #ff69b4;
 }
 
+/* Monika sprites */
+.sprite {
+    display: none;
+}
+
 /* Show Content Button */
 #showcontent {
     position: absolute;
