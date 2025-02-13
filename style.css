@@ -184,7 +184,7 @@ button:hover {
 }
  /* Scale down Monika's slide-in image */
     .slidefromright .sprite {
-        width: 280px !important; /* Reduce width */
+        width: 380px !important; /* Reduce width */
         height: auto !important; /* Keep aspect ratio */
         right: -150px !important; /* Adjust position */
         z-index: 1; /* Behind Pointing Monika */
@@ -192,6 +192,8 @@ button:hover {
     }
 /* Position Pointing Monika over Sliding Monika */
 .pointatyes .sprite {
+ width: 480px !important; /* Reduce width */
+ height: 480px !important; /* Keep aspect ratio */
     position: absolute;
     z-index: 2; /* Ensure it's above Sliding Monika */
 }
@@ -199,4 +201,6 @@ button:hover {
 .jumpscare .sprite {
   position: absolute;
   z-index: ;
+ width: 700px !important; /* Reduce width */
+height: 700px !important; /* Keep aspect ratio */
 }
