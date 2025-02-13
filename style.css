@@ -17,10 +17,10 @@ body {
     pointer-events: none;
 }
 
-/* Container adjustments */
+/* Centered Container (Adjusts for mobile) */
 .container {
-    text-align: center; /* Centers text inside */
-    padding: 20px;
+    text-align: center;
+    padding: 4vh; /* Responsive padding */
     border-radius: 20px;
 
     /* Background and frosted effect */
@@ -29,13 +29,11 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 
-    /* Animation & transitions */
-    animation: borderAnimation 3s linear infinite;
-    transition: backdrop-filter 0.5s ease-in-out, filter 0.5s ease-in-out;
-
-    /* Default square size (desktop) */
-    width: 500px;
-    height: 500px;
+    /* Adjust width & height for mobile */
+    width: 50vw; /* 50% of viewport width */
+    max-width: 500px;
+    min-width: 320px;
+    height: auto; /* Allow height to adjust */
 
     /* Flexbox for centering content */
     display: flex;
@@ -49,6 +47,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 /* Border animation */
 @keyframes borderAnimation {
     0% { border-image: linear-gradient(90deg, #ff1493, #ff0000) 1; }
@@ -60,45 +59,37 @@ body {
 
 /* Title animation */
 h1 {
-    font-size: 2.2em; /* Adjusted for better fit on small screens */
+    font-size: 5vw; /* Responsive title size */
     font-family: 'Arial', sans-serif;
     color: #ff1493;
     text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 30px #ff1493;
     animation: glow 1.5s infinite alternate;
-    margin-bottom: 15px;
-}
-
-@keyframes glow {
-    from {
-        text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 30px #ff1493;
-    }
-    to {
-        text-shadow: 0 0 15px #ff69b4, 0 0 25px #ff1493, 0 0 35px #ff69b4;
-    }
+    margin-bottom: 3vh;
 }
 
 /* Image styling */
 #leaf {
     display: block;
-    margin: 0 auto 15px auto;
-    width: 120px; /* Smaller for mobile */
-    height: auto;
+    margin: 0 auto 2vh auto;
+    width: 20vw; /* Adjusts for mobile */
+    max-width: 120px;
     border: 3px solid #ff1493;
     border-radius: 10px;
 }
 
 /* Button container */
 .button-container {
-    display: flex; /* Makes the buttons align in a row */
-    justify-content: center; /* Centers them horizontally */
-    gap: 15px; /* Adds spacing between buttons */
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+    margin-top: 3vh;
+    flex-wrap: wrap; /* Allow buttons to stack if needed */
 }
 
 /* Buttons */
 button {
-    font-size: 1.7em; /* Bigger buttons */
-    padding: 12px 25px;
+    font-size: 1.5em;
+    padding: 10px 20px;
     border: none;
     border-radius: 15px;
     background-color: #ff1493;
@@ -106,6 +97,8 @@ button {
     cursor: pointer;
     transition: 0.3s;
     font-weight: bold;
+    width: 40%; /* Adjusted button width */
+    max-width: 180px;
 }
 
 /* Button hover effect */
@@ -118,16 +111,15 @@ button:hover {
     display: none;
 }
 
-
 /* Initially blurred container */
 .container {
-    filter: blur(10px); /* Adds blur effect */
+    filter: blur(10px);
     transition: filter 0.5s ease-in-out;
 }
 
-/* When the "Show Content" button is clicked */
+/* When "Show Content" button is clicked */
 .container.unblurred {
-    filter: none; /* Removes blur effect */
+    filter: none;
 }
 
 /* Show Content Button */
@@ -136,7 +128,7 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px 35px;
+    padding: 15px 30px;
     font-size: 22px;
     background-color: #ff69b4;
     color: white;
@@ -145,40 +137,63 @@ button:hover {
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s ease, transform 0.2s ease;
-    z-index: 1000; /* Ensure it's above the blur */
+    z-index: 1000;
 }
 
 /* Hide button after clicking */
 .hidden {
     display: none;
 }
-/* Hide button after clicking */
-.hidden {
-    display: none;
+
+/* Scale down Monika's slide-in image */
+.slidefromright .sprite {
+    width: 35vw !important; /* Adjusted for mobile */
+    max-width: 280px;
+    height: auto !important;
+    right: -10vw !important;
+    z-index: 1;
+    position: absolute;
 }
- /* Scale down Monika's slide-in image */
-    .slidefromright .sprite {
-        width: 280px !important; /* Reduce width */
-        height: auto !important; /* Keep aspect ratio */
-        right: -150px !important; /* Adjust position */
-        z-index: 1; /* Behind Pointing Monika */
-        position: absolute;
-    }
+
 /* Position Pointing Monika over Sliding Monika */
 .pointatyes .sprite {
     position: absolute;
-    z-index: 2; /* Ensure it's above Sliding Monika */
+    z-index: 2;
+    width: 25vw;
+    max-width: 250px;
 }
 
+/* Jumpscare Monika fix */
 .jumpscare .sprite {
-  position: absolute;
-  z-index: ;
+    position: absolute;
+    z-index: 3;
+    width: 60vw;
+    max-width: 400px;
 }
+
 /* Responsive UI for Android */
 @media screen and (max-width: 768px) {
-    .card {
-        width: 85%; /* Adjust width for mobile */
-        max-width: 400px;
-        padding: 15px;
-        position: relative;
+    .container {
+        width: 80vw; /* More width on small screens */
+        padding: 5vw;
     }
+
+    h1 {
+        font-size: 6vw; /* Bigger title for mobile */
+    }
+
+    button {
+        width: 60%; /* Make buttons larger for touch */
+        max-width: 220px;
+    }
+
+    .slidefromright .sprite {
+        width: 45vw !important;
+        max-width: 300px;
+    }
+
+    .pointatyes .sprite {
+        width: 30vw;
+        max-width: 200px;
+    }
+}
