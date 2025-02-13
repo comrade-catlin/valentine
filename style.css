@@ -197,8 +197,20 @@ button:hover {
         width: 280px !important; /* Reduce width */
         height: auto !important; /* Keep aspect ratio */
         right: -150px !important; /* Adjust position */
+        z-index: 1; /* Behind Pointing Monika */
+        position: absolute;
     }
 
     .pointatyes .sprite {
         width: 250
+     position: absolute;
+    z-index: 2; /* Ensure it's above Sliding Monika */
+}
+
+.jumpscare .sprite {
+  position: absolute;
+  z-index: 3;
+  height: 80vh;
+    
+}
 
