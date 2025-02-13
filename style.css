@@ -164,7 +164,7 @@ button:hover {
 }
  /* Scale down Monika's slide-in image */
     .slidefromright .sprite {
-        width: 280px !important; /* Reduce width */
+        width: auto !important; /* Reduce width */
         height: auto !important; /* Keep aspect ratio */
         right: -150px !important; /* Adjust position */
         z-index: 1; /* Behind Pointing Monika */
