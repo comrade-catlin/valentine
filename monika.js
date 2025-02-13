@@ -138,3 +138,30 @@ document.addEventListener("DOMContentLoaded", function () {
         showContentBtn.classList.add("hidden"); // Hide button after click
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const showContentBtn = document.getElementById("showcontent");
+    const container = document.querySelector(".container");
+    const yesButton = document.querySelector("button[onclick]");
+    const noButton = document.getElementById("doSomething");
+
+    // Initially disable buttons
+    yesButton.disabled = true;
+    noButton.disabled = true;
+    yesButton.style.opacity = "0.5";
+    noButton.style.opacity = "0.5";
+    yesButton.style.pointerEvents = "none";
+    noButton.style.pointerEvents = "none";
+
+    showContentBtn.addEventListener("click", function () {
+        container.classList.add("unblurred"); // Remove blur effect
+        showContentBtn.classList.add("hidden"); // Hide button after click
+        
+        // Enable buttons
+        yesButton.disabled = false;
+        noButton.disabled = false;
+        yesButton.style.opacity = "1";
+        noButton.style.opacity = "1";
+        yesButton.style.pointerEvents = "auto";
+        noButton.style.pointerEvents = "auto";
+    });
+});
