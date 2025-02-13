@@ -33,6 +33,11 @@ body {
     margin: auto;
     position: relative;
     top: 50px;
+  /* Flexbox for centering content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .unblur {
