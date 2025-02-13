@@ -22,18 +22,16 @@ body {
     text-align: center;
     padding: 4vh; /* Responsive padding */
     border-radius: 20px;
-
-    /* Background and frosted effect */
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(12px);
     border: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-
-    /* Adjust width & height for mobile */
-    width: 50vw; /* 50% of viewport width */
+    
+    /* Responsive Sizing */
+    width: 50vw;
     max-width: 500px;
     min-width: 320px;
-    height: auto; /* Allow height to adjust */
+    height: auto;
 
     /* Flexbox for centering content */
     display: flex;
@@ -48,48 +46,28 @@ body {
     transform: translate(-50%, -50%);
 }
 
-/* Border animation */
-@keyframes borderAnimation {
-    0% { border-image: linear-gradient(90deg, #ff1493, #ff0000) 1; }
-    25% { border-image: linear-gradient(180deg, #ff0000, #ff69b4) 1; }
-    50% { border-image: linear-gradient(270deg, #ff69b4, #ff4500) 1; }
-    75% { border-image: linear-gradient(360deg, #ff4500, #ff1493) 1; }
-    100% { border-image: linear-gradient(90deg, #ff1493, #ff0000) 1; }
-}
-
 /* Title animation */
 h1 {
-    font-size: 5vw; /* Responsive title size */
-    font-family: 'Arial', sans-serif;
+    font-size: 2em;
     color: #ff1493;
     text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 30px #ff1493;
     animation: glow 1.5s infinite alternate;
     margin-bottom: 3vh;
 }
 
-/* Image styling */
-#leaf {
-    display: block;
-    margin: 0 auto 2vh auto;
-    width: 20vw; /* Adjusts for mobile */
-    max-width: 120px;
-    border: 3px solid #ff1493;
-    border-radius: 10px;
-}
-
-/* Button container */
+/* Button container (Column Layout) */
 .button-container {
     display: flex;
-    justify-content: center;
-    gap: 3vw;
-    margin-top: 3vh;
-    flex-wrap: wrap; /* Allow buttons to stack if needed */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+    gap: 15px; /* Spacing between buttons */
+    margin-top: 20px;
 }
 
 /* Buttons */
 button {
     font-size: 1.5em;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
     border-radius: 15px;
     background-color: #ff1493;
@@ -97,8 +75,8 @@ button {
     cursor: pointer;
     transition: 0.3s;
     font-weight: bold;
-    width: 40%; /* Adjusted button width */
-    max-width: 180px;
+    width: 80%; /* Make buttons fill more space */
+    max-width: 300px;
 }
 
 /* Button hover effect */
@@ -106,94 +84,62 @@ button:hover {
     background-color: #ff69b4;
 }
 
-/* Monika sprites */
+/* Monika Sprites */
 .sprite {
     display: none;
-}
-
-/* Initially blurred container */
-.container {
-    filter: blur(10px);
-    transition: filter 0.5s ease-in-out;
-}
-
-/* When "Show Content" button is clicked */
-.container.unblurred {
-    filter: none;
-}
-
-/* Show Content Button */
-#showcontent {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 15px 30px;
-    font-size: 22px;
-    background-color: #ff69b4;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.2s ease;
-    z-index: 1000;
 }
 
-/* Hide button after clicking */
-.hidden {
-    display: none;
-}
-
-/* Scale down Monika's slide-in image */
+/* Slide-in Monika (desktop fix) */
 .slidefromright .sprite {
-    width: 35vw !important; /* Adjusted for mobile */
-    max-width: 280px;
-    height: auto !important;
-    right: -10vw !important;
+    width: 200px;
+    height: auto;
+    right: -100px;
     z-index: 1;
-    position: absolute;
 }
 
-/* Position Pointing Monika over Sliding Monika */
+/* Pointing Monika (above slide-in Monika) */
 .pointatyes .sprite {
-    position: absolute;
+    width: 180px;
     z-index: 2;
-    width: 25vw;
-    max-width: 250px;
 }
 
-/* Jumpscare Monika fix */
+/* Jumpscare Monika */
 .jumpscare .sprite {
-    position: absolute;
+    width: 300px;
     z-index: 3;
-    width: 60vw;
-    max-width: 400px;
 }
 
 /* Responsive UI for Android */
 @media screen and (max-width: 768px) {
     .container {
-        width: 80vw; /* More width on small screens */
+        width: 90vw;
         padding: 5vw;
     }
 
     h1 {
-        font-size: 6vw; /* Bigger title for mobile */
+        font-size: 5vw;
+    }
+
+    .button-container {
+        width: 100%; /* Buttons take full width */
     }
 
     button {
-        width: 60%; /* Make buttons larger for touch */
-        max-width: 220px;
+        width: 100%;
+        max-width: 250px;
     }
 
     .slidefromright .sprite {
-        width: 45vw !important;
-        max-width: 300px;
+        width: 150px;
+        right: -50px;
     }
 
     .pointatyes .sprite {
-        width: 30vw;
-        max-width: 200px;
+        width: 140px;
+    }
+
+    .jumpscare .sprite {
+        width: 250px;
     }
 }
