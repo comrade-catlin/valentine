@@ -99,26 +99,34 @@ button#showLetter {
     background-color: #ff1e4d;
 }
 
-/* Responsive UI for Android */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {  
+    /* Adjust card size for mobile */
     .card {
-        width: 85%; /* Adjust width for mobile */
-        max-width: 400px;
-        padding: 15px;
-        position: relative;
+        width: 90%; /* Make it take up most of the screen width */
+        max-width: 350px; /* Set a reasonable max-width */
+        padding: 15px; /* Reduce padding */
+        font-size: 16px; /* Adjust text size */
     }
 
-    button#showLetter {
-        font-size: 16px;
-        padding: 10px 20px;
-        top: 50%; /* Still centered */
-        left: 50%;
-        transform: translate(-50%, -50%);
+    h1 {
+        font-size: 2em; /* Reduce title size */
     }
 
+    /* Ensure the letter is readable */
     #gushing-letter {
-        font-size: 16px;
-        max-height: 300px;
-        margin-top: 60px; /* Creates space below button */
+        max-height: 250px; /* Reduce height to fit smaller screens */
+        font-size: 16px; /* Adjust font size for readability */
+        padding: 8px;
+    }
+
+    /* Center the "Show Letter" button properly */
+    button#showLetter {
+        font-size: 16px; /* Reduce button text size */
+        padding: 10px 20px;
+        top: auto; /* Prevents it from breaking on small screens */
+        bottom: 20px; /* Position at the bottom */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
     }
 }
+
