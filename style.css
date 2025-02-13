@@ -19,28 +19,45 @@ body {
 
 /* Container adjustments */
 .container {
-    text-align: center;
+    text-align: center; /* Centers text inside */
     padding: 20px;
-    border-radius: 15px;
-    position: relative;
+    border-radius: 20px;
+
+    /* Background and frosted effect */
     background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 5px solid transparent;
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+
+    /* Animation & transitions */
     animation: borderAnimation 3s linear infinite;
     transition: backdrop-filter 0.5s ease-in-out, filter 0.5s ease-in-out;
-    
-    filter: blur(10px);
-    width: 80%; /* Increased width for mobile */
-    max-width: 750px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    margin: auto;
-    position: relative;
-    top: 50px;
+
+    /* Default square size (desktop) */
+    width: 500px;
+    height: 500px;
+
+    /* Flexbox for centering content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Centering on screen */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
+/* Mobile-friendly adjustments */
+@media screen and (max-width: 600px) {  
+    .container {
+        width: 300px;
+        height: 300px;
+    }
+}
+
 
 /* Border animation */
 @keyframes borderAnimation {
@@ -82,17 +99,16 @@ h1 {
 
 /* Button container */
 .button-container {
-    display: flex;
-    flex-direction: column; /* Stack buttons on smaller screens */
-    align-items: center;
-    gap: 10px;
-    margin-top: 15px;
+    display: flex; /* Makes the buttons align in a row */
+    justify-content: center; /* Centers them horizontally */
+    gap: 15px; /* Adds spacing between buttons */
+    margin-top: 20px;
 }
 
 /* Buttons */
 button {
-    font-size: 1.5em;
-    padding: 12px 20px;
+    font-size: 1.7em; /* Bigger buttons */
+    padding: 12px 25px;
     border: none;
     border-radius: 15px;
     background-color: #ff1493;
@@ -100,8 +116,6 @@ button {
     cursor: pointer;
     transition: 0.3s;
     font-weight: bold;
-    width: 90%; /* Make buttons full width for mobile */
-    max-width: 250px;
 }
 
 /* Button hover effect */
@@ -114,71 +128,55 @@ button:hover {
     display: none;
 }
 
+
+/* Initially blurred container */
+.container {
+    filter: blur(10px); /* Adds blur effect */
+    transition: filter 0.5s ease-in-out;
+}
+
+/* When the "Show Content" button is clicked */
+.container.unblurred {
+    filter: none; /* Removes blur effect */
+}
+
 /* Show Content Button */
 #showcontent {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 15px 25px;
-    font-size: 18px;
+    padding: 20px 35px;
+    font-size: 22px;
     background-color: #ff69b4;
     color: white;
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s ease, transform 0.2s ease;
-    z-index: 1000;
-}
-
-/* Hover & Click Effects */
-#showcontent:hover {
-    background-color: hotpink;
-    transform: translate(-50%, -50%) scale(1.05);
-}
-
-#showcontent:active {
-    background-color: #d14772;
-    transform: translate(-50%, -50%) scale(0.95);
+    z-index: 1000; /* Ensure it's above the blur */
 }
 
 /* Hide button after clicking */
 .hidden {
     display: none;
 }
-
-/* Unblur effect */
-.unblurred {
-    backdrop-filter: none;
-    filter: none;
-}
-
-/* Responsive Design for Mobile */
-@media screen and (max-width: 768px) {
-    .container {
-        width: 90%; /* More width for small screens */
-        height: 80vh; /* Taller height */
-        max-width: 400px; /* Prevents it from being too wide */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+ /* Scale down Monika's slide-in image */
+    .slidefromright .sprite {
+        width: 280px !important; /* Reduce width */
+        height: auto !important; /* Keep aspect ratio */
+        right: -150px !important; /* Adjust position */
+        z-index: 1; /* Behind Pointing Monika */
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
     }
-
-    /* Make sure images and buttons fit well */
-    .container img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    button {
-        width: 80%;
-    }
+/* Position Pointing Monika over Sliding Monika */
+.pointatyes .sprite {
+    position: absolute;
+    z-index: 2; /* Ensure it's above Sliding Monika */
 }
 
+.jumpscare .sprite {
+  position: absolute;
+  z-index: ;
+}
