@@ -49,36 +49,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-/* Mobile-friendly adjustments */
-@media screen and (max-width: 600px) {  
-    .container {
-        width: 300px;
-        height: 300px;
-         /* Scale down Monika's slide-in image */
-    .slidefromright .sprite {
-        width: 280px !important; /* Reduce width */
-        height: auto !important; /* Keep aspect ratio */
-        right: -150px !important; /* Adjust position */
-        z-index: 1; /* Behind Pointing Monika */
-        position: absolute;
-    }
-/* Position Pointing Monika over Sliding Monika */
-.pointatyes .sprite {
-    position: absolute;
-    z-index: 2; /* Ensure it's above Sliding Monika */
-}
-
-.jumpscare .sprite {
-  height: 80vh;
-  width:80vw;
-  position: absolute;
-  z-index: ;
-}
-    }
-}
-
-
 /* Border animation */
 @keyframes borderAnimation {
     0% { border-image: linear-gradient(90deg, #ff1493, #ff0000) 1; }
