@@ -27,12 +27,12 @@ function jumpMonika() {
         let basePosition = -180 + jumpCount * 60;
         let jumpHeight = basePosition + 40;
 
-        monika0.src = "/funny_project/monika/Monika_Sticker_Excited.png";
+        monika0.src = "Monika_Sticker_Excited.png";
         monika0.style.bottom = jumpHeight + 'px';
         
         setTimeout(() => {
             monika0.style.bottom = (basePosition + 20) + 'px';
-            monika0.src = "/funny_project/monika/Monika_Sticker_Distrait.png";
+            monika0.src = "Monika_Sticker_Distrait.png";
         }, 300);
 
         jumpCount++;
