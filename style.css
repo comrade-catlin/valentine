@@ -188,15 +188,17 @@ button:hover {
 
     /* Resize sprites for mobile */
     .sprite {
-        max-width: 250px; /* Reduce sprite size */
+        max-width: 3
+            50px; /* Reduce sprite size */
         height: auto;
     }
 
     .slidefromright .sprite {
-        width: 200px;
-        right: -40px;
+        width: 280px !important; /* Reduce width */
+        height: auto !important; /* Keep aspect ratio */
+        right: -150px !important; /* Adjust position */
     }
 
     .pointatyes .sprite {
-        width: 200
+        width: 250
 
