@@ -83,7 +83,8 @@ function triggerJumpscare() {
     monikaJumpscare.style.display = 'block';
     monikaJumpscare.style.position = 'fixed';
     monikaJumpscare.style.left = '50%';
-    monikaJumpscare.style.top = '50%';
+    monikaJumpscare.style.top = '55%';
+    monikaJumpscare.style.bottom = '30%';
     monikaJumpscare.style.transform = 'translate(-50%, -50%)';
     monikaJumpscare.style.width = '700px';
     monikaJumpscare.style.height = '700px';
@@ -137,4 +138,3 @@ document.addEventListener("DOMContentLoaded", function () {
         showContentBtn.classList.add("hidden"); // Hide button after click
     });
 });
-
